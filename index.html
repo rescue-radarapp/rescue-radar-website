@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rescue Radar | Fast Vehicle Recovery Across the UK</title>
-    <meta name="description" content="Breakdown? Get help fast. Instant vehicle recovery across the UK. Connect with verified recovery drivers near you in minutes.">
-    <meta name="keywords" content="vehicle recovery, breakdown service, roadside assistance, car recovery UK, tow truck, Glasgow recovery, Edinburgh recovery">
+    <title>Rescue Radar | UK Roadside Recovery Membership Network</title>
+    <meta name="description" content="Join the UK's fastest-growing roadside recovery network. Unlimited breakdown cover for drivers. 14-day free trial for recovery providers. Fast, affordable, reliable.">
+    <meta name="keywords" content="roadside recovery membership, breakdown cover UK, vehicle recovery network, roadside assistance, recovery provider, Glasgow recovery, Edinburgh recovery">
     
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rescue-radar.co.uk/">
-    <meta property="og:title" content="Rescue Radar | Fast Vehicle Recovery Across the UK">
-    <meta property="og:description" content="Breakdown? Get help fast. Instant vehicle recovery across the UK.">
+    <meta property="og:title" content="Rescue Radar | UK Roadside Recovery Membership Network">
+    <meta property="og:description" content="Join the UK's fastest-growing roadside recovery network. Affordable breakdown cover. Fast response times.">
     <meta property="og:image" content="https://rescue-radar.co.uk/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://rescue-radar.co.uk/">
-    <meta property="twitter:title" content="Rescue Radar | Fast Vehicle Recovery">
-    <meta property="twitter:description" content="Breakdown? Get help fast. Instant vehicle recovery across the UK.">
+    <meta property="twitter:title" content="Rescue Radar | UK Roadside Recovery Network">
+    <meta property="twitter:description" content="Join the UK's fastest-growing roadside recovery network.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
@@ -157,19 +157,19 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 700px;
+            max-width: 800px;
         }
         
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 107, 53, 0.15);
-            border: 1px solid rgba(255, 107, 53, 0.3);
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 14px;
-            color: var(--accent);
+            color: var(--success);
             margin-bottom: 24px;
         }
         
@@ -187,9 +187,9 @@
         }
         
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-size: clamp(2.2rem, 7vw, 3.5rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 20px;
             letter-spacing: -0.02em;
         }
@@ -199,67 +199,118 @@
         }
         
         .hero-subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.35rem);
+            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
             color: var(--text-secondary);
             margin-bottom: 40px;
-            max-width: 500px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
         
+        /* CTA Buttons */
         .hero-buttons {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
         }
         
-        @media (min-width: 480px) {
+        @media (min-width: 540px) {
             .hero-buttons {
                 flex-direction: row;
                 justify-content: center;
             }
         }
         
-        .btn {
-            display: inline-flex;
+        .cta-card {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 20px 28px;
+            border-radius: 14px;
             text-decoration: none;
             transition: all 0.2s;
             cursor: pointer;
             border: none;
-            min-width: 200px;
+            min-width: 220px;
+            flex: 1;
         }
         
-        .btn-primary {
+        .cta-card-primary {
             background: var(--accent);
             color: white;
         }
         
-        .btn-primary:hover {
+        .cta-card-primary:hover {
             background: var(--accent-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
         
-        .btn-secondary {
+        .cta-card-secondary {
             background: var(--bg-card);
             color: var(--text-primary);
             border: 1px solid var(--border);
         }
         
-        .btn-secondary:hover {
+        .cta-card-secondary:hover {
             background: #252525;
-            border-color: #444;
+            border-color: var(--accent);
+            transform: translateY(-3px);
         }
         
-        /* How It Works */
-        .how-it-works {
+        .cta-card-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .cta-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .cta-card-subtitle {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        .cta-card-primary .cta-card-subtitle {
+            color: rgba(255,255,255,0.85);
+        }
+        
+        .cta-card-secondary .cta-card-subtitle {
+            color: var(--success);
+        }
+        
+        /* Trust Bar */
+        .trust-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .trust-item-icon {
+            color: var(--success);
+        }
+        
+        /* Benefits Section */
+        .benefits {
             padding: 100px 20px;
             background: var(--bg-secondary);
         }
@@ -291,11 +342,70 @@
             margin: 0 auto;
         }
         
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+        }
+        
+        .benefit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 107, 53, 0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 20px;
+            background: var(--bg-primary);
+        }
+        
         .steps-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -312,41 +422,180 @@
             border-radius: 16px;
             padding: 32px 24px;
             text-align: center;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        
-        .step-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
+            position: relative;
         }
         
         .step-number {
-            width: 48px;
-            height: 48px;
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32px;
+            height: 32px;
             background: var(--accent);
-            border-radius: 12px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 14px;
             font-weight: 700;
-            margin: 0 auto 20px;
         }
         
         .step-icon {
-            font-size: 32px;
+            font-size: 36px;
             margin-bottom: 16px;
+            margin-top: 8px;
         }
         
         .step-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .step-card p {
             color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Membership Section */
+        .membership {
+            padding: 100px 20px;
+            background: var(--bg-secondary);
+        }
+        
+        .membership-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 700px) {
+            .membership-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .membership-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .membership-card.featured {
+            border-color: var(--accent);
+        }
+        
+        .membership-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent);
+        }
+        
+        .membership-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .membership-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .membership-desc {
+            color: var(--text-secondary);
             font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+        
+        .membership-price {
+            margin-bottom: 24px;
+        }
+        
+        .membership-price .amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        
+        .membership-price .period {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .membership-price .note {
+            display: block;
+            color: var(--success);
+            font-size: 0.9rem;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+        
+        .membership-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+        
+        .membership-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        
+        .membership-features li span {
+            color: var(--success);
+            font-size: 16px;
+        }
+        
+        .membership-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .membership-btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .membership-btn-primary:hover {
+            background: var(--accent-hover);
+        }
+        
+        .membership-btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        
+        .membership-btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(255, 107, 53, 0.1);
         }
         
         /* Coverage Section */
@@ -378,14 +627,15 @@
         
         .coverage-text p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 32px;
+            font-size: 1.05rem;
+            margin-bottom: 28px;
+            line-height: 1.7;
         }
         
         .coverage-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
         
         .coverage-badge {
@@ -394,7 +644,7 @@
             gap: 8px;
             background: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 10px 16px;
+            padding: 10px 14px;
             border-radius: 8px;
             font-size: 14px;
         }
@@ -439,8 +689,8 @@
         .trust-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 24px;
-            max-width: 800px;
+            gap: 20px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -472,7 +722,7 @@
         }
         
         .trust-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 6px;
         }
@@ -480,41 +730,42 @@
         .trust-card p {
             color: var(--text-secondary);
             font-size: 0.9rem;
+            line-height: 1.5;
         }
         
         /* CTA Section */
-        .cta {
+        .cta-section {
             padding: 100px 20px;
             background: linear-gradient(180deg, var(--bg-primary) 0%, #0d0d0d 100%);
             text-align: center;
         }
         
         .cta-content {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
         }
         
-        .cta h2 {
+        .cta-section h2 {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             font-weight: 700;
             margin-bottom: 16px;
         }
         
-        .cta p {
+        .cta-section p {
             color: var(--text-secondary);
             font-size: 1.1rem;
-            margin-bottom: 32px;
+            margin-bottom: 36px;
         }
         
-        .cta-buttons {
+        .cta-buttons-row {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             align-items: center;
         }
         
-        @media (min-width: 480px) {
-            .cta-buttons {
+        @media (min-width: 540px) {
+            .cta-buttons-row {
                 flex-direction: row;
                 justify-content: center;
             }
@@ -549,6 +800,7 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
             max-width: 300px;
+            line-height: 1.6;
         }
         
         .footer-links h4 {
@@ -582,31 +834,6 @@
             font-size: 0.85rem;
         }
         
-        /* App Links */
-        .app-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        
-        .app-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 10px 16px;
-            border-radius: 8px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 14px;
-            transition: border-color 0.2s;
-        }
-        
-        .app-link:hover {
-            border-color: var(--accent);
-        }
-        
         /* Contact */
         .contact-email {
             display: inline-flex;
@@ -630,7 +857,7 @@
                 <div class="logo-icon">🚗</div>
                 <span class="logo-text">Rescue Radar</span>
             </a>
-            <a href="#get-app" class="header-cta">Get the App</a>
+            <a href="#membership" class="header-cta">Join Now</a>
         </div>
     </header>
 
@@ -639,17 +866,69 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="hero-badge-dot"></span>
-                Providers available now
+                Members-only recovery network
             </div>
-            <h1>Breakdown? <span class="highlight">Get help fast.</span></h1>
-            <p class="hero-subtitle">Instant vehicle recovery across the UK. Connect with verified recovery drivers near you in minutes.</p>
+            <h1>Your <span class="highlight">Roadside Safety Net</span> — Always On</h1>
+            <p class="hero-subtitle">Join the UK's fastest-growing roadside recovery membership. Proactive coverage that gives you peace of mind before you even leave the driveway. Trusted providers. One tap away.</p>
+            
             <div class="hero-buttons">
-                <a href="#get-app" class="btn btn-primary">
-                    <span>🚨</span> Request Recovery
+                <a href="#membership" class="cta-card cta-card-primary">
+                    <span class="cta-card-icon">🚗</span>
+                    <span class="cta-card-title">Join as a Driver</span>
+                    <span class="cta-card-subtitle">Free membership</span>
                 </a>
-                <a href="#become-driver" class="btn btn-secondary">
-                    <span>🚛</span> Become a Provider
+                <a href="#providers" class="cta-card cta-card-secondary">
+                    <span class="cta-card-icon">🚛</span>
+                    <span class="cta-card-title">Join as a Provider / Operator</span>
+                    <span class="cta-card-subtitle">14-day free trial</span>
                 </a>
+            </div>
+            
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <span class="trust-item-icon">✓</span>
+                    <span>Zero membership fees for drivers</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-item-icon">✓</span>
+                    <span>Vetted & verified providers</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-item-icon">✓</span>
+                    <span>Live GPS tracking</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-item-icon">✓</span>
+                    <span>Expanding UK-wide</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Why Members Love Us</p>
+                <h2 class="section-title">Proactive protection, not reactive panic</h2>
+                <p class="section-subtitle">Be prepared before trouble strikes. That's the Rescue Radar difference.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Instant Connection</h3>
+                    <p>No call centres. No hold music. One tap connects you to multiple local providers competing for your job.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>You Choose the Price</h3>
+                    <p>Compare live quotes before you accept. Transparent pricing means no nasty surprises at the roadside.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📍</div>
+                    <h3>Watch Help Arrive</h3>
+                    <p>Live GPS tracking shows exactly where your provider is. Relax knowing help is minutes away.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -658,28 +937,77 @@
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">How It Works</p>
-                <h2 class="section-title">Help in 3 simple steps</h2>
-                <p class="section-subtitle">From breakdown to recovery in minutes, not hours.</p>
+                <p class="section-label">Your Roadside Backup Plan</p>
+                <h2 class="section-title">From stranded to sorted in minutes</h2>
+                <p class="section-subtitle">Join once. Be covered always. Here's how it works.</p>
             </div>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <div class="step-icon">📍</div>
-                    <h3>Share your location</h3>
-                    <p>Open the app and let us know where you are. We'll detect your location automatically.</p>
+                    <div class="step-icon">📱</div>
+                    <h3>Become a Member</h3>
+                    <p>Download the app and sign up for free. Your safety net is ready before you even need it.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <div class="step-icon">💬</div>
-                    <h3>Get instant quotes</h3>
-                    <p>Nearby verified providers send you competitive quotes. Choose the best option for you.</p>
+                    <div class="step-icon">🛟</div>
+                    <h3>Request When You Need</h3>
+                    <p>Broken down? One tap broadcasts your location to all nearby verified providers. Quotes roll in fast.</p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <div class="step-icon">🚛</div>
-                    <h3>Track your provider</h3>
-                    <p>Watch your recovery driver arrive in real-time. Help is on the way!</p>
+                    <h3>Pick & Track</h3>
+                    <p>Choose the best quote. Watch your provider approach on live GPS. Chat in-app. You're in control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section class="membership" id="membership">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Membership Options</p>
+                <h2 class="section-title">One network. Two ways to join.</h2>
+                <p class="section-subtitle">Whether you drive or you recover — there's a place for you in the Rescue Radar community.</p>
+            </div>
+            <div class="membership-grid">
+                <div class="membership-card">
+                    <div class="membership-title">Driver Membership</div>
+                    <div class="membership-desc">For everyday drivers who want peace of mind on every journey — without the price tag.</div>
+                    <div class="membership-price">
+                        <span class="amount">Free</span>
+                        <span class="note">Always free. No subscription. No catch.</span>
+                    </div>
+                    <ul class="membership-features">
+                        <li><span>✓</span> Request recovery anywhere, anytime</li>
+                        <li><span>✓</span> Multiple quotes from local providers</li>
+                        <li><span>✓</span> Live GPS tracking of your provider</li>
+                        <li><span>✓</span> In-app chat & notifications</li>
+                        <li><span>✓</span> Rate and review providers</li>
+                        <li><span>✓</span> Build your trusted provider list</li>
+                    </ul>
+                    <a href="#" class="membership-btn membership-btn-secondary" id="driver-join">Join Free — Download App</a>
+                </div>
+                <div class="membership-card featured" id="providers">
+                    <span class="membership-badge">14-Day Free Trial</span>
+                    <div class="membership-title">Provider / Operator Membership</div>
+                    <div class="membership-desc">For recovery operators ready to fill their schedule and grow their business.</div>
+                    <div class="membership-price">
+                        <span class="amount">£19.95</span>
+                        <span class="period">/month</span>
+                        <span class="note">No commission. No hidden fees. Cancel anytime.</span>
+                    </div>
+                    <ul class="membership-features">
+                        <li><span>✓</span> Unlimited job requests — keep 100%</li>
+                        <li><span>✓</span> Set your own prices</li>
+                        <li><span>✓</span> Build your reputation with reviews</li>
+                        <li><span>✓</span> Verified provider badge</li>
+                        <li><span>✓</span> Priority member support</li>
+                        <li><span>✓</span> Earnings dashboard & analytics</li>
+                    </ul>
+                    <a href="#" class="membership-btn membership-btn-primary" id="provider-join">Start Your 14-Day Free Trial</a>
                 </div>
             </div>
         </div>
@@ -690,8 +1018,8 @@
         <div class="container">
             <div class="coverage-content">
                 <div class="coverage-text">
-                    <h2>UK-Wide Coverage</h2>
-                    <p>Starting in Glasgow & Edinburgh, we're rapidly expanding across Scotland and the rest of the UK. Our network of independent providers means help is never far away.</p>
+                    <h2>A Growing Network of Trusted Providers</h2>
+                    <p>We're building something different — a community of independent recovery professionals who take pride in their work. Starting in Scotland's central belt and expanding rapidly. When you join, you're not just getting coverage. You're joining a movement.</p>
                     <div class="coverage-badges">
                         <span class="coverage-badge">
                             <span class="coverage-badge-icon">✓</span> Glasgow
@@ -709,9 +1037,9 @@
                 </div>
                 <div class="coverage-map">
                     <div class="map-icon">🗺️</div>
-                    <h3>Growing Every Day</h3>
-                    <p>New providers joining regularly.</p>
-                    <p class="expanding-text">Expanding across the UK</p>
+                    <h3>Providers Wanted</h3>
+                    <p>Help us grow the network.</p>
+                    <p class="expanding-text">Join from anywhere in the UK</p>
                 </div>
             </div>
         </div>
@@ -721,37 +1049,37 @@
     <section class="trust" id="trust">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">Why Choose Us</p>
-                <h2 class="section-title">Built for peace of mind</h2>
-                <p class="section-subtitle">We take your safety and security seriously.</p>
+                <p class="section-label">Built on Trust</p>
+                <h2 class="section-title">A network you can rely on</h2>
+                <p class="section-subtitle">Every member — driver or provider — is part of a community that values safety and reliability.</p>
             </div>
             <div class="trust-grid">
                 <div class="trust-card">
-                    <div class="trust-icon">⚡</div>
+                    <div class="trust-icon">🛡️</div>
                     <div>
-                        <h3>Fast Response</h3>
-                        <p>Average response time under 30 minutes in covered areas. No waiting around.</p>
+                        <h3>Verified Providers Only</h3>
+                        <p>Every provider is vetted for proper licensing, insurance, and professional standards before joining.</p>
                     </div>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon">✅</div>
+                    <div class="trust-icon">⭐</div>
                     <div>
-                        <h3>Verified Providers</h3>
-                        <p>All providers are vetted, insured, and rated by real customers.</p>
+                        <h3>Honest Reviews</h3>
+                        <p>Real feedback from real members. Choose providers based on experience, not guesswork.</p>
                     </div>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">💳</div>
                     <div>
-                        <h3>Transparent Pricing</h3>
-                        <p>See quotes upfront. No hidden fees or surprise charges.</p>
+                        <h3>Flexible Payment</h3>
+                        <p>Pay securely in-app or directly to your provider. Your money, your choice, your control.</p>
                     </div>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon">📱</div>
+                    <div class="trust-icon">📞</div>
                     <div>
-                        <h3>Real-Time Tracking</h3>
-                        <p>Watch your provider arrive. Know exactly when help will reach you.</p>
+                        <h3>Real Human Support</h3>
+                        <p>Questions? Problems? Our team is here to help — real people, real answers, real fast.</p>
                     </div>
                 </div>
             </div>
@@ -759,57 +1087,21 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta" id="get-app">
+    <section class="cta-section" id="join">
         <div class="cta-content">
-            <h2>Ready to get started?</h2>
-            <p>Download Rescue Radar and never worry about breakdowns again.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary" id="customer-btn">
-                    <span>🚨</span> I Need Recovery
+            <h2>Ready to join the network?</h2>
+            <p>Thousands of drivers and providers are already part of Rescue Radar. Whether you want proactive roadside protection or a steady stream of recovery work — your membership is waiting.</p>
+            <div class="cta-buttons-row">
+                <a href="#membership" class="cta-card cta-card-primary">
+                    <span class="cta-card-icon">🚗</span>
+                    <span class="cta-card-title">Join as a Driver</span>
+                    <span class="cta-card-subtitle">Free membership</span>
                 </a>
-                <a href="#become-driver" class="btn btn-secondary">
-                    <span>🚛</span> I'm a Provider
+                <a href="#providers" class="cta-card cta-card-secondary">
+                    <span class="cta-card-icon">🚛</span>
+                    <span class="cta-card-title">Join as a Provider / Operator</span>
+                    <span class="cta-card-subtitle">14-day free trial</span>
                 </a>
-            </div>
-            <div class="app-links">
-                <a href="#" class="app-link">
-                    <span>📱</span> App Store (Coming Soon)
-                </a>
-                <a href="#" class="app-link">
-                    <span>🤖</span> Google Play (Coming Soon)
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Become a Driver Section -->
-    <section class="coverage" id="become-driver" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div class="coverage-content">
-                <div class="coverage-text">
-                    <h2>Become a Provider</h2>
-                    <p>Join our network of independent recovery operators. Set your own hours, set your own prices, and grow your business with Rescue Radar.</p>
-                    <div class="coverage-badges">
-                        <span class="coverage-badge">
-                            <span class="coverage-badge-icon">✓</span> Flexible hours
-                        </span>
-                        <span class="coverage-badge">
-                            <span class="coverage-badge-icon">✓</span> Keep more earnings
-                        </span>
-                        <span class="coverage-badge">
-                            <span class="coverage-badge-icon">✓</span> No commission per job
-                        </span>
-                    </div>
-                    <div style="margin-top: 24px;">
-                        <a href="#" class="btn btn-primary" id="provider-btn">Apply Now</a>
-                    </div>
-                </div>
-                <div class="coverage-map">
-                    <div class="map-icon">🚛</div>
-                    <h3>Simple Subscription</h3>
-                    <p>One monthly fee. Unlimited jobs.</p>
-                    <p class="expanding-text">From £29.99/month</p>
-                </div>
             </div>
         </div>
     </section>
@@ -822,14 +1114,14 @@
                     <div class="logo-icon">🚗</div>
                     <span class="logo-text">Rescue Radar</span>
                 </a>
-                <p>Connecting stranded drivers with local recovery providers. Fast, transparent, reliable.</p>
+                <p>The UK's fastest-growing roadside recovery membership network. Connecting drivers with trusted local providers for proactive protection and peace of mind.</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <a href="#how-it-works">How It Works</a>
+                <a href="#membership">Membership</a>
                 <a href="#coverage">Coverage</a>
-                <a href="#become-driver">Become a Provider</a>
-                <a href="#get-app">Get the App</a>
+                <a href="#providers">For Providers</a>
             </div>
             <div class="footer-links">
                 <h4>Contact</h4>
@@ -841,7 +1133,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Rescue Radar. All rights reserved.</p>
+            <p>© 2025 Rescue Radar. All rights reserved. | Your roadside safety net.</p>
         </div>
     </footer>
 
@@ -860,15 +1152,15 @@
             });
         });
 
-        // Placeholder for app store links - can be updated when available
-        document.getElementById('customer-btn')?.addEventListener('click', function(e) {
+        // Placeholder for app store links
+        document.getElementById('driver-join')?.addEventListener('click', function(e) {
             e.preventDefault();
-            alert('Rescue Radar app coming soon to App Store and Google Play! Contact help@rescue-radar.co.uk for early access.');
+            alert('Rescue Radar app coming soon to App Store and Google Play!\\n\\nContact help@rescue-radar.co.uk for early access.');
         });
 
-        document.getElementById('provider-btn')?.addEventListener('click', function(e) {
+        document.getElementById('provider-join')?.addEventListener('click', function(e) {
             e.preventDefault();
-            alert('Provider registration coming soon! Contact help@rescue-radar.co.uk to register your interest.');
+            alert('Start your 14-day free trial!\\n\\nDownload the app and register as a provider to begin.\\n\\nContact help@rescue-radar.co.uk for more info.');
         });
     </script>
 </body>
