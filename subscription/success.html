@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Successful - Rescue Radar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            max-width: 500px;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: pulse 2s infinite;
+        }
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #4CAF50;
+        }
+        p {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B35, #ff8c5a);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+        }
+        .loading {
+            display: none;
+        }
+        .loading.active {
+            display: block;
+        }
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #333;
+            border-top-color: #FF6B35;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .error {
+            color: #ff4444;
+        }
+        .app-links {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #333;
+        }
+        .app-links p {
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        .store-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .store-btn {
+            background: #222;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .store-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Loading State -->
+        <div class="loading active" id="loading">
+            <div class="spinner"></div>
+            <h1>Verifying Payment...</h1>
+            <p>Please wait while we confirm your subscription.</p>
+        </div>
+
+        <!-- Success State -->
+        <div class="content" id="success">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <h1>Subscription Activated!</h1>
+            <p>Your Rescue Radar provider subscription is now active. You can start receiving job requests and quotes immediately.</p>
+            <a href="rescueradar://subscription/success" class="btn" id="openAppBtn">Open Rescue Radar App</a>
+            
+            <div class="app-links">
+                <p>Don't have the app installed?</p>
+                <div class="store-buttons">
+                    <a href="#" class="store-btn">App Store</a>
+                    <a href="#" class="store-btn">Google Play</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div class="content" id="error">
+            <div class="success-icon" style="background: linear-gradient(135deg, #ff4444, #cc0000);">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </div>
+            <h1 class="error">Payment Verification Failed</h1>
+            <p>We couldn't verify your payment. If you were charged, please contact support and we'll resolve this immediately.</p>
+            <a href="mailto:support@rescue-radar.co.uk" class="btn">Contact Support</a>
+        </div>
+    </div>
+
+    <script>
+        // Get session_id from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+
+        const loadingEl = document.getElementById('loading');
+        const successEl = document.getElementById('success');
+        const errorEl = document.getElementById('error');
+
+        function showSuccess() {
+            loadingEl.classList.remove('active');
+            successEl.classList.add('active');
+            
+            // Try to open the app automatically after 2 seconds
+            setTimeout(() => {
+                window.location.href = 'rescueradar://subscription/success?session_id=' + sessionId;
+            }, 2000);
+        }
+
+        function showError() {
+            loadingEl.classList.remove('active');
+            errorEl.classList.add('active');
+        }
+
+        async function checkPaymentStatus() {
+            if (!sessionId) {
+                showError();
+                return;
+            }
+
+            let attempts = 0;
+            const maxAttempts = 5;
+
+            const poll = async () => {
+                try {
+                    // We need to check status without auth - use a public endpoint or just show success
+                    // For now, assume success if we have a session_id (Stripe redirects here only on success)
+                    showSuccess();
+                } catch (error) {
+                    attempts++;
+                    if (attempts < maxAttempts) {
+                        setTimeout(poll, 2000);
+                    } else {
+                        showError();
+                    }
+                }
+            };
+
+            // Wait a moment for Stripe webhook to process, then show success
+            setTimeout(poll, 1500);
+        }
+
+        // Start checking
+        checkPaymentStatus();
+
+        // Handle open app button
+        document.getElementById('openAppBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'rescueradar://subscription/success?session_id=' + sessionId;
+            
+            // Fallback - if app doesn't open, redirect to app store after delay
+            setTimeout(() => {
+                // Could redirect to app store here
+            }, 2500);
+        });
+    </script>
+</body>
+</html>

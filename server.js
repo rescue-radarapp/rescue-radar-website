@@ -12,7 +12,17 @@ app.get('/health', (req, res) => {
     res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
-// Serve index.html for all routes (SPA-style)
+// Subscription success page
+app.get('/subscription/success', (req, res) => {
+    res.sendFile(path.join(__dirname, 'subscription', 'success.html'));
+});
+
+// Subscription cancel page (redirect to main page)
+app.get('/subscription/cancel', (req, res) => {
+    res.redirect('/');
+});
+
+// Serve index.html for all other routes (SPA-style)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
