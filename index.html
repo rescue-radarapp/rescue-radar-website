@@ -21,7 +21,7 @@
     <meta property="twitter:description" content="Join the UK's fastest-growing roadside recovery network.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+    <link rel="icon" type="image/png" href="/images/logo-small.png">
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,12 +100,14 @@
         .logo-icon {
             width: 36px;
             height: 36px;
-            background: var(--accent);
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
+            overflow: hidden;
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .logo-text {
@@ -925,7 +927,7 @@
     <header class="header">
         <div class="header-content">
             <a href="/" class="logo">
-                <div class="logo-icon">🚗</div>
+                <div class="logo-icon"><img src="/images/logo-small.png" alt="Rescue Radar"></div>
                 <span class="logo-text">Rescue Radar</span>
             </a>
             <a href="#membership" class="header-cta">Join Now</a>
@@ -1193,7 +1195,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <a href="/" class="logo">
-                    <div class="logo-icon">🚗</div>
+                    <div class="logo-icon"><img src="/images/logo-small.png" alt="Rescue Radar"></div>
                     <span class="logo-text">Rescue Radar</span>
                 </a>
                 <p>Connecting drivers with ID verified recovery operators across Scotland. Built by recovery professionals. No middlemen. No hidden fees.</p>

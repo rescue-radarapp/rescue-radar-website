@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscription Successful - Rescue Radar</title>
+    <link rel="icon" type="image/png" href="/images/logo-small.png">
     <style>
         * {
             margin: 0;
@@ -23,6 +24,14 @@
             text-align: center;
             padding: 40px;
             max-width: 500px;
+        }
+        .logo-header {
+            margin-bottom: 24px;
+        }
+        .logo-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
         }
         .success-icon {
             width: 80px;
@@ -129,6 +138,11 @@
 </head>
 <body>
     <div class="container">
+        <!-- Logo Header -->
+        <div class="logo-header">
+            <img src="/images/logo-small.png" alt="Rescue Radar">
+        </div>
+        
         <!-- Loading State -->
         <div class="loading active" id="loading">
             <div class="spinner"></div>
