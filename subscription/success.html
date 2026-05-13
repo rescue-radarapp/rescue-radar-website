@@ -183,6 +183,7 @@
         // Get session_id from URL
         const urlParams = new URLSearchParams(window.location.search);
         const sessionId = urlParams.get('session_id');
+        const API_URL = 'https://rescue-radar-api.onrender.com/api';
 
         const loadingEl = document.getElementById('loading');
         const successEl = document.getElementById('success');
@@ -198,36 +199,66 @@
             }, 2000);
         }
 
-        function showError() {
+        function showError(message) {
             loadingEl.classList.remove('active');
             errorEl.classList.add('active');
+            if (message) {
+                const errorText = errorEl.querySelector('p');
+                if (errorText) errorText.textContent = message;
+            }
         }
 
         async function checkPaymentStatus() {
             if (!sessionId) {
-                showError();
+                showError('No payment session found.');
                 return;
             }
 
             let attempts = 0;
-            const maxAttempts = 5;
+            const maxAttempts = 10;
 
             const poll = async () => {
                 try {
-                    // We need to check status without auth - use a public endpoint or just show success
-                    // For now, assume success if we have a session_id (Stripe redirects here only on success)
-                    showSuccess();
+                    console.log(`Checking payment status, attempt ${attempts + 1}/${maxAttempts}`);
+                    
+                    const response = await fetch(`${API_URL}/subscriptions/status/${sessionId}`);
+                    const data = await response.json();
+                    
+                    console.log('Status response:', data);
+                    
+                    if (!response.ok) {
+                        throw new Error(data.detail || 'Verification failed');
+                    }
+                    
+                    // Check if payment is confirmed
+                    if (data.payment_status === 'paid' || 
+                        (data.payment_status === 'no_payment_required' && data.status === 'complete')) {
+                        console.log('Payment confirmed!');
+                        showSuccess();
+                        return;
+                    }
+                    
+                    // Payment not yet confirmed, retry
+                    attempts++;
+                    if (attempts < maxAttempts) {
+                        console.log('Payment not confirmed yet, retrying in 2s...');
+                        setTimeout(poll, 2000);
+                    } else {
+                        console.log('Max attempts reached');
+                        showError('Payment verification timed out. If you were charged, please contact support.');
+                    }
                 } catch (error) {
+                    console.error('Error checking status:', error);
                     attempts++;
                     if (attempts < maxAttempts) {
                         setTimeout(poll, 2000);
                     } else {
-                        showError();
+                        showError('Could not verify payment. Please contact support if you were charged.');
                     }
                 }
             };
 
-            // Wait a moment for Stripe webhook to process, then show success
+            // Start polling after a brief delay for Stripe to process
             setTimeout(poll, 1500);
         }
 
