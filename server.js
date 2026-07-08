@@ -22,6 +22,11 @@ app.get('/subscription/cancel', (req, res) => {
     res.redirect('/');
 });
 
+// Download redirect - smart link to App Store / Google Play
+app.get('/download', (req, res) => {
+    res.redirect('https://onelink.to/bv9k4s');
+});
+
 // Serve index.html for all other routes (SPA-style)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
