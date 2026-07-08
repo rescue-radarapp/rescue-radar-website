@@ -920,6 +920,149 @@
         .footer-bottom p {
             margin: 0;
         }
+        
+        /* App Store Badges */
+        .store-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        @media (min-width: 480px) {
+            .store-badges {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.2s;
+            min-width: 160px;
+            justify-content: center;
+        }
+        
+        .store-badge:hover {
+            background: #1a1a1a;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .store-badge-icon {
+            font-size: 24px;
+        }
+        
+        .store-badge-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .store-badge-small {
+            font-size: 10px;
+            opacity: 0.8;
+            line-height: 1;
+        }
+        
+        .store-badge-large {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        /* Download Modal */
+        .download-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .download-modal.active {
+            display: flex;
+        }
+        
+        .download-modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .download-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+        
+        .download-modal-close:hover {
+            color: var(--text-primary);
+        }
+        
+        .download-modal-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .download-modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+        
+        .download-modal p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        /* Hero store badges */
+        .hero-store-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            margin-top: 32px;
+        }
+        
+        @media (min-width: 480px) {
+            .hero-store-badges {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .available-on {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -974,6 +1117,27 @@
                     <span class="trust-item-icon">✓</span>
                     <span>Built by recovery professionals</span>
                 </div>
+            </div>
+            
+            <!-- Store Badges -->
+            <div class="hero-store-badges">
+                <p class="available-on">Available now on</p>
+            </div>
+            <div class="store-badges">
+                <a href="https://apps.apple.com/gb/app/rescue-radar/id6768803627" target="_blank" rel="noopener" class="store-badge">
+                    <span class="store-badge-icon">🍎</span>
+                    <span class="store-badge-text">
+                        <span class="store-badge-small">Download on the</span>
+                        <span class="store-badge-large">App Store</span>
+                    </span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.rescueradar.app" target="_blank" rel="noopener" class="store-badge">
+                    <span class="store-badge-icon">▶️</span>
+                    <span class="store-badge-text">
+                        <span class="store-badge-small">Get it on</span>
+                        <span class="store-badge-large">Google Play</span>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
@@ -1061,7 +1225,7 @@
                         <li><span>✓</span> Rate and review providers</li>
                         <li><span>✓</span> Build your trusted provider list</li>
                     </ul>
-                    <a href="#" class="membership-btn membership-btn-secondary" id="driver-join">Join Free — Download App</a>
+                    <a href="#" class="membership-btn membership-btn-secondary" onclick="openDownloadModal(event)">Download App — It's Free</a>
                 </div>
                 <div class="membership-card featured" id="providers">
                     <span class="membership-badge">14-Day Free Trial</span>
@@ -1080,7 +1244,7 @@
                         <li><span>✓</span> Fill gaps in your schedule</li>
                         <li><span>✓</span> Earnings dashboard & job history</li>
                     </ul>
-                    <a href="#" class="membership-btn membership-btn-primary" id="provider-join">Start Your 14-Day Free Trial</a>
+                    <a href="#" class="membership-btn membership-btn-primary" onclick="openDownloadModal(event)">Start Free Trial — Download App</a>
                 </div>
             </div>
             
@@ -1190,6 +1354,32 @@
         </div>
     </section>
 
+    <!-- Download Modal -->
+    <div class="download-modal" id="downloadModal">
+        <div class="download-modal-content">
+            <button class="download-modal-close" onclick="closeDownloadModal()">&times;</button>
+            <div class="download-modal-icon">📱</div>
+            <h3>Download Rescue Radar</h3>
+            <p>Get the app and join thousands of drivers and recovery operators across Scotland.</p>
+            <div class="store-badges">
+                <a href="https://apps.apple.com/gb/app/rescue-radar/id6768803627" target="_blank" rel="noopener" class="store-badge">
+                    <span class="store-badge-icon">🍎</span>
+                    <span class="store-badge-text">
+                        <span class="store-badge-small">Download on the</span>
+                        <span class="store-badge-large">App Store</span>
+                    </span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.rescueradar.app" target="_blank" rel="noopener" class="store-badge">
+                    <span class="store-badge-icon">▶️</span>
+                    <span class="store-badge-text">
+                        <span class="store-badge-small">Get it on</span>
+                        <span class="store-badge-large">Google Play</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -1218,7 +1408,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Rescue Radar. All rights reserved.</p>
+            <p>© 2026 Rescue Radar. All rights reserved.</p>
             <p class="company-info">Horizon Performance Ltd | Company No. SC767332</p>
         </div>
     </footer>
@@ -1238,15 +1428,30 @@
             });
         });
 
-        // Placeholder for app store links
-        document.getElementById('driver-join')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Rescue Radar app coming soon to App Store and Google Play!\\n\\nContact help@rescue-radar.co.uk for early access.');
+        // Download Modal Functions
+        function openDownloadModal(e) {
+            if (e) e.preventDefault();
+            document.getElementById('downloadModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on background click
+        document.getElementById('downloadModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDownloadModal();
+            }
         });
 
-        document.getElementById('provider-join')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Start your 14-day free trial!\\n\\nDownload the app and register as a provider to begin.\\n\\nContact help@rescue-radar.co.uk for more info.');
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDownloadModal();
+            }
         });
     </script>
 </body>
